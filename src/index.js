@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
+import './fonts/Modesto/Modesto Condensed Bold.ttf';
 import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
 

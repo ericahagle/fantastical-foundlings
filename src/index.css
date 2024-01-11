@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: Modesto-Condensed;
+  src: local('Modesto Condensed'),
+    url('./fonts/Modesto/Modesto\ Condensed Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Modesto-Expanded;
+  src: local('Modesto Expanded'),
+    url('./fonts/Modesto/Modesto\ Expanded.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Modesto-Poster;
+  src: local('Modesto Poster'),
+    url('./fonts/Modesto/Modesto\ Poster.ttf');
+}

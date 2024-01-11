@@ -1,0 +1,22 @@
+header {
+  background-color: #582d30;
+  padding-bottom: 2em;
+  margin-top: -3em;
+}
+
+.app-title-link {
+  text-decoration: none;
+}
+
+.app-title {
+  color: #ffeff4;
+  font-size: 4em;
+  padding-top: 0.5em;
+}
+
+.nav-button {
+  background-color: #d32430;
+  color: #ffeff4;
+  font-size: 1em;
+  padding: 0.5em 1.5em 0.5em 1.5em;
+}
