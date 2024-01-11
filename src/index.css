@@ -13,8 +13,19 @@ code {
 }
 
 @font-face {
-  font-family: Modesto;
-  src: local('Modesto'),
-    url('./fonts/Modesto/Modesto Condensed Bold.ttf') format('truetype');
-    font-weight: bold;
+  font-family: Modesto-Condensed;
+  src: local('Modesto Condensed'),
+    url('./fonts/Modesto/Modesto\ Condensed Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Modesto-Expanded;
+  src: local('Modesto Expanded'),
+    url('./fonts/Modesto/Modesto\ Expanded.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Modesto-Poster;
+  src: local('Modesto Poster'),
+    url('./fonts/Modesto/Modesto\ Poster.ttf');
 }

@@ -17,4 +17,6 @@ header {
 .adoptable-creatures-nav-button {
   background-color: #d32430;
   color: #ffeff4;
+  font-size: 1em;
+  padding: 0.5em 1.5em 0.5em 1.5em;
 }
