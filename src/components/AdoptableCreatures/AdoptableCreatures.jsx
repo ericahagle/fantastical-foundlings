@@ -8,18 +8,16 @@ const AdoptableCreatures = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    getAllCreatures()
-      .then(setCreatures);
-  }, []);
-
-  useEffect(() => {
     const savedCreatures = localStorage.getItem('creatures');
-    if (savedCreatures) setCreatures(JSON.parse(savedCreatures));
-    getAllCreatures()
-      .then((creatures) => {
-        setCreatures(creatures);
-        localStorage.setItem('creatures', JSON.stringify(creatures));
-      });
+    if (savedCreatures) {
+      setCreatures(JSON.parse(savedCreatures))
+    } else {
+      getAllCreatures()
+        .then((creatures) => {
+          setCreatures(creatures);
+          localStorage.setItem('creatures', JSON.stringify(creatures));
+        });
+    }
   }, []);
 
   return (
