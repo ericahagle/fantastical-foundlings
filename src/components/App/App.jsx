@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import AdoptableCreatures from '../AdoptableCreatures/AdoptableCreatures';
 
 const App = () => {
+
   return (
     <main className='App'>
       <Header />

@@ -1,0 +1,10 @@
+.CreatureCard {
+  background-color: #bbbcac;
+  border-radius: 1rem;
+  list-style: none;
+  padding: 4px;
+}
+
+.CreatureCard hgroup h4 {
+  color: #d32430;
+}
