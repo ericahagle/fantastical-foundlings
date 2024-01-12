@@ -24,9 +24,11 @@ const AdoptableCreatures = () => {
 
   return (
     <div className='AdoptableCreatures'>
+      <h2 className='page-title font-face-modesto-expanded'>Adoptable Creatures</h2>
       {creatures.length === 0 && <span className='loading'>Loading...</span>}
       <ul className='creature-list'>
         {creatures.map((creature) => (
+          creature.image &&
           <CreatureCard key={creature.index} creature={creature} />
         ))}
       </ul>

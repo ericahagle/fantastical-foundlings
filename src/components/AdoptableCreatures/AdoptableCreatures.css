@@ -1,0 +1,12 @@
+.creature-list {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+.page-title {
+  color: #582d30;
+  text-shadow: 3px 3px 0 #f8d5b5;
+  font-size: xx-large;
+}
