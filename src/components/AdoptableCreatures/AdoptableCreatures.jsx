@@ -11,6 +11,7 @@ const AdoptableCreatures = () => {
   const [selectedCreature, setSelectedCreature] = useState(null);
   const [error, setError] = useState('');
   const [selectedSizeFilter, setSelectedSizeFilter] = useState('');
+  const [selectedTypeFilter, setSelectedTypeFilter] = useState('');
 
   const selectCreature = (creature) => {
     setSelectedCreature(creature);
@@ -22,6 +23,10 @@ const AdoptableCreatures = () => {
 
   const handleSizeFilterChange = (sizeFilter) => {
     setSelectedSizeFilter(sizeFilter);
+  }
+
+  const handleTypeFilterChange = (typeFilter) => {
+    setSelectedTypeFilter(typeFilter);
   }
 
   useEffect(() => {
@@ -38,19 +43,26 @@ const AdoptableCreatures = () => {
   }, []);
 
   useEffect(() => {
-    if (selectedSizeFilter) {
-      const filtered = creatures.filter((creature) => creature.size === selectedSizeFilter);
+    if (selectedSizeFilter || selectedTypeFilter) {
+      const filtered = creatures.filter((creature) => {
+        const sizeCondition = !selectedSizeFilter || creature.size === selectedSizeFilter;
+        const typeCondition = !selectedTypeFilter || creature.type === selectedTypeFilter;
+        return sizeCondition && typeCondition;
+      });
       setFilteredCreatures(filtered);
     } else {
       setFilteredCreatures(creatures);
     }
-  }, [selectedSizeFilter, creatures]);
+  }, [selectedSizeFilter, selectedTypeFilter, creatures]);
 
   return (
     <div className='AdoptableCreatures'>
       <h2 className='page-title font-face-modesto-expanded'>Adoptable Creatures</h2>
       {creatures.length === 0 && <span className='loading'>Loading...</span>}
-      <CreaturesFilter onSizeFilterChange={handleSizeFilterChange} />
+      <CreaturesFilter
+        onSizeFilterChange={handleSizeFilterChange}
+        onTypeFilterChange={handleTypeFilterChange}
+      />
       <ul className='creature-list'>
         {filteredCreatures.map((creature) => (
           creature.image &&
