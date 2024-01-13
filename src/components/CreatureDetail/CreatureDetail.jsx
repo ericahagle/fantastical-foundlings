@@ -12,7 +12,7 @@ const CreatureDetail = () => {
     if (value) {
       return (
         <p>
-          <strong>{label} </strong>
+          <strong>{label}: </strong>
           {value}
         </p>
       );
@@ -23,12 +23,14 @@ const CreatureDetail = () => {
   const renderArrayIfExists = (label, array) => {
     if (array && array.length > 0) {
       return (
-        <p>
-          <strong>{label} </strong>
+        <div>
+          <p>
+            <strong>{label} </strong>
+          </p>
           {array.map((item) => (
             <p key={item.name}>{item.name}: {item.desc}</p>
           ))}
-        </p>
+        </div>
       );
     };
     return null;
