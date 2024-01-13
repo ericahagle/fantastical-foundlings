@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './AdoptableCreatures.css';
 import { getAllCreatures } from '../../apiCalls';
 import CreatureCard from '../CreatureCard/CreatureCard';
+import CreaturesFilter from '../CreaturesFilter/CreaturesFilter';
 
 const AdoptableCreatures = () => {
   const [creatures, setCreatures] = useState([]);
@@ -34,6 +35,7 @@ const AdoptableCreatures = () => {
     <div className='AdoptableCreatures'>
       <h2 className='page-title font-face-modesto-expanded'>Adoptable Creatures</h2>
       {creatures.length === 0 && <span className='loading'>Loading...</span>}
+      <CreaturesFilter />
       <ul className='creature-list'>
         {creatures.map((creature) => (
           creature.image &&
