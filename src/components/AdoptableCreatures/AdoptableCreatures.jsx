@@ -1,11 +1,21 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './AdoptableCreatures.css';
-import getAllCreatures from '../../apiCalls';
+import { getAllCreatures } from '../../apiCalls';
 import CreatureCard from '../CreatureCard/CreatureCard';
 
 const AdoptableCreatures = () => {
   const [creatures, setCreatures] = useState([]);
+  const [selectedCreature, setSelectedCreature] = useState(null);
   const [error, setError] = useState('');
+
+  const selectCreature = (creature) => {
+    setSelectedCreature(creature);
+  }
+
+  const clearCreatureSelection = () => {
+    setSelectedCreature(null);
+  }
 
   useEffect(() => {
     const savedCreatures = localStorage.getItem('creatures');
@@ -27,7 +37,12 @@ const AdoptableCreatures = () => {
       <ul className='creature-list'>
         {creatures.map((creature) => (
           creature.image &&
-          <CreatureCard key={creature.index} creature={creature} />
+          <Link to={`/adoptable-creatures/${creature.index}`}
+            key={creature.index}
+            className='creature-link'
+          >
+            <CreatureCard key={creature.index} creature={creature} onClick={() => selectCreature(creature)} />
+          </Link>
         ))}
       </ul>
     </div>

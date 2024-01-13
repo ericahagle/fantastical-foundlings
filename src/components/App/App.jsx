@@ -4,6 +4,7 @@ import Home from '../Home/Home';
 import Header from '../Header/Header';
 import AdoptableCreatures from '../AdoptableCreatures/AdoptableCreatures';
 import AdoptableCreaturesNavButton from '../AdoptableCreaturesNavButton/AdoptableCreaturesNavButton';
+import CreatureDetail from '../CreatureDetail/CreatureDetail';
 
 const App = () => {
   const location = useLocation();
@@ -19,6 +20,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/adoptable-creatures' element={<AdoptableCreatures />} />
+        <Route path='/adoptable-creatures/:index' element={<CreatureDetail />} />
       </Routes>
     </main>
   );

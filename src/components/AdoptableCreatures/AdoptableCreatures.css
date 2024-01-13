@@ -10,3 +10,8 @@
   text-shadow: 3px 3px 0 #f8d5b5;
   font-size: xx-large;
 }
+
+.creature-link {
+  text-decoration: none;
+  color: inherit;
+}
