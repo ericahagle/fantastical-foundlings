@@ -13,4 +13,9 @@ const getAllCreatures = () => {
     )
 }
 
-export default getAllCreatures;
+const getCreatureByIndex = (index) => {
+  return fetch(BASE_URL + `/api/monsters/${index}`)
+    .then((response) => response.json())
+}
+
+export { getAllCreatures, getCreatureByIndex };
