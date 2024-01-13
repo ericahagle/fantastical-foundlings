@@ -7,15 +7,21 @@ import CreaturesFilter from '../CreaturesFilter/CreaturesFilter';
 
 const AdoptableCreatures = () => {
   const [creatures, setCreatures] = useState([]);
+  const [filteredCreatures, setFilteredCreatures] = useState([]);
   const [selectedCreature, setSelectedCreature] = useState(null);
   const [error, setError] = useState('');
+  const [selectedSizeFilter, setSelectedSizeFilter] = useState('');
 
   const selectCreature = (creature) => {
     setSelectedCreature(creature);
-  }
+  };
 
   const clearCreatureSelection = () => {
     setSelectedCreature(null);
+  };
+
+  const handleSizeFilterChange = (sizeFilter) => {
+    setSelectedSizeFilter(sizeFilter);
   }
 
   useEffect(() => {
@@ -31,13 +37,22 @@ const AdoptableCreatures = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (selectedSizeFilter) {
+      const filtered = creatures.filter((creature) => creature.size === selectedSizeFilter);
+      setFilteredCreatures(filtered);
+    } else {
+      setFilteredCreatures(creatures);
+    }
+  }, [selectedSizeFilter, creatures]);
+
   return (
     <div className='AdoptableCreatures'>
       <h2 className='page-title font-face-modesto-expanded'>Adoptable Creatures</h2>
       {creatures.length === 0 && <span className='loading'>Loading...</span>}
-      <CreaturesFilter />
+      <CreaturesFilter onSizeFilterChange={handleSizeFilterChange} />
       <ul className='creature-list'>
-        {creatures.map((creature) => (
+        {filteredCreatures.map((creature) => (
           creature.image &&
           <Link to={`/adoptable-creatures/${creature.index}`}
             key={creature.index}
