@@ -12,6 +12,7 @@ const AdoptableCreatures = () => {
   const [error, setError] = useState('');
   const [selectedSizeFilter, setSelectedSizeFilter] = useState('');
   const [selectedTypeFilter, setSelectedTypeFilter] = useState('');
+  const [selectedAlignmentFilter, setSelectedAlignmentFilter] = useState('');
 
   const selectCreature = (creature) => {
     setSelectedCreature(creature);
@@ -29,6 +30,10 @@ const AdoptableCreatures = () => {
     setSelectedTypeFilter(typeFilter);
   }
 
+  const handleAlignmentFilterChange = (alignmentFilter) => {
+    setSelectedAlignmentFilter(alignmentFilter);
+  }
+
   useEffect(() => {
     const savedCreatures = localStorage.getItem('creatures');
     if (savedCreatures) {
@@ -43,17 +48,18 @@ const AdoptableCreatures = () => {
   }, []);
 
   useEffect(() => {
-    if (selectedSizeFilter || selectedTypeFilter) {
+    if (selectedSizeFilter || selectedTypeFilter || selectedAlignmentFilter) {
       const filtered = creatures.filter((creature) => {
         const sizeCondition = !selectedSizeFilter || creature.size === selectedSizeFilter;
         const typeCondition = !selectedTypeFilter || creature.type === selectedTypeFilter;
-        return sizeCondition && typeCondition;
+        const alignmentCondition = !selectedAlignmentFilter || creature.alignment === selectedAlignmentFilter;
+        return sizeCondition && typeCondition && alignmentCondition;
       });
       setFilteredCreatures(filtered);
     } else {
       setFilteredCreatures(creatures);
     }
-  }, [selectedSizeFilter, selectedTypeFilter, creatures]);
+  }, [selectedSizeFilter, selectedTypeFilter, selectedAlignmentFilter, creatures]);
 
   return (
     <div className='AdoptableCreatures'>
@@ -62,6 +68,7 @@ const AdoptableCreatures = () => {
       <CreaturesFilter
         onSizeFilterChange={handleSizeFilterChange}
         onTypeFilterChange={handleTypeFilterChange}
+        onAlignmentFilterChange={handleAlignmentFilterChange}
       />
       <ul className='creature-list'>
         {filteredCreatures.map((creature) => (

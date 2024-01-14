@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import './CreaturesFilter.css';
 
-const CreaturesFilter = ({ onSizeFilterChange, onTypeFilterChange }) => {
+const CreaturesFilter = ({ onSizeFilterChange, onTypeFilterChange, onAlignmentFilterChange }) => {
   const [selectSizeFilter, setSelectSizeFilter] = useState('');
   const [selectTypeFilter, setSelectTypeFilter] = useState('');
+  const [selectAlignmentFilter, setSelectAlignmentFilter] = useState('');
 
   useEffect(() => {
     onSizeFilterChange(selectSizeFilter);
-    onTypeFilterChange(selectTypeFilter)
-  }, [selectSizeFilter, selectTypeFilter, onSizeFilterChange, onTypeFilterChange]);
+    onTypeFilterChange(selectTypeFilter);
+    onAlignmentFilterChange(selectAlignmentFilter);
+  }, [selectSizeFilter, selectTypeFilter, selectAlignmentFilter, onSizeFilterChange, onTypeFilterChange, onAlignmentFilterChange]);
 
   return (
     <div className='filter-wrapper'>
@@ -53,11 +55,29 @@ const CreaturesFilter = ({ onSizeFilterChange, onTypeFilterChange }) => {
         </select>
       </label>
 
-      {/* <label htmlFor='select-alignment'>Filter By Alignment
-        <select>
-
+      <label htmlFor='select-alignment'>Filter By Alignment
+        <select
+          value={selectAlignmentFilter}
+          id='select-alignment'
+          onChange={(event) => {
+            setSelectAlignmentFilter(event.currentTarget.value)
+          }}
+        >
+          <option value=''>All Alignments</option>
+          <option value='lawful good'>Lawful Good</option>
+          <option value='neutral good'>Neutral Good</option>
+          <option value='chaotic good'>Chaotic Good</option>
+          <option value='lawful neutral'>Lawful Neutral</option>
+          <option value='neutral'>(True) Neutral</option>
+          <option value='chaotic neutral'>Chaotic Neutral</option>
+          <option value='lawful evil'>Lawful Evil</option>
+          <option value='neutral evil'>Neutral Evil</option>
+          <option value='chaotic evil'>Chaotic Evil</option>
+          <option value='unaligned'>Unaligned</option>
+          <option value='any alignment'>Any Alignment</option>
+          <option value='any non-good alignment'>Any Non-Good Alignment</option>
         </select>
-      </label> */}
+      </label>
 
     </div>
   );
