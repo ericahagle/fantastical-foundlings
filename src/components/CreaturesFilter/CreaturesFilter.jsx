@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import './CreaturesFilter.css';
 
 const CreaturesFilter = ({ onSizeFilterChange, onTypeFilterChange, onAlignmentFilterChange }) => {
@@ -93,5 +94,11 @@ const CreaturesFilter = ({ onSizeFilterChange, onTypeFilterChange, onAlignmentFi
     </div>
   );
 };
+
+CreaturesFilter.propTypes = {
+  onAlignmentFilterChange: PropTypes.func.isRequired,
+  onSizeFilterChange: PropTypes.func.isRequired,
+  onTypeFilterChange: PropTypes.func.isRequired
+}
 
 export default CreaturesFilter;

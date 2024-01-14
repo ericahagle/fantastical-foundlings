@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './CreatureCard.css';
 
 const CreatureCard = ({ creature, onClick }) => {
@@ -20,5 +21,10 @@ const CreatureCard = ({ creature, onClick }) => {
     </li>
   );
 };
+
+CreatureCard.propTypes = {
+  creature: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired
+}
 
 export default CreatureCard;
