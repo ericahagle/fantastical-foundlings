@@ -81,6 +81,7 @@ const AdoptableCreatures = () => {
           </Link>
         ))}
       </ul>
+      {filteredCreatures.length === 0 && <span className='no-results'>No creatures match your search.</span>}
     </div>
   );
 };
