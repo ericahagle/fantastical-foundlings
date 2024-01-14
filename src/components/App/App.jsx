@@ -6,6 +6,7 @@ import Header from '../Header/Header';
 import AdoptableCreatures from '../AdoptableCreatures/AdoptableCreatures';
 import AdoptableCreaturesNavButton from '../AdoptableCreaturesNavButton/AdoptableCreaturesNavButton';
 import CreatureDetail from '../CreatureDetail/CreatureDetail';
+import NotFound from '../NotFound/NotFound';
 
 const App = () => {
   const location = useLocation();
