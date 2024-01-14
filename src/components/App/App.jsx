@@ -6,6 +6,7 @@ import Header from '../Header/Header';
 import AdoptableCreatures from '../AdoptableCreatures/AdoptableCreatures';
 import AdoptableCreaturesNavButton from '../AdoptableCreaturesNavButton/AdoptableCreaturesNavButton';
 import CreatureDetail from '../CreatureDetail/CreatureDetail';
+import NotFound from '../NotFound/NotFound';
 
 const App = () => {
   const location = useLocation();
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/adoptable-creatures' element={<AdoptableCreatures />} />
         <Route path='/adoptable-creatures/:index' element={<CreatureDetail />} />
+        <Route path='/*' element={<NotFound />} />
       </Routes>
     </main>
   );
