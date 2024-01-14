@@ -13,3 +13,12 @@
 .font-face-modesto-poster {
   font-family: 'Modesto-Poster';
 }
+
+.error-message {
+  color: #d32430;
+  font-size: xx-large;
+  padding-top: 1em;
+  font-family: 'Modesto-Expanded';
+  padding-left: 5em;
+  padding-right: 5em;
+}

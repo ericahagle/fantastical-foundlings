@@ -9,10 +9,11 @@ const AdoptableCreatures = () => {
   const [creatures, setCreatures] = useState([]);
   const [filteredCreatures, setFilteredCreatures] = useState([]);
   const [selectedCreature, setSelectedCreature] = useState(null);
-  const [error, setError] = useState('');
   const [selectedSizeFilter, setSelectedSizeFilter] = useState('');
   const [selectedTypeFilter, setSelectedTypeFilter] = useState('');
   const [selectedAlignmentFilter, setSelectedAlignmentFilter] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   const selectCreature = (creature) => {
     setSelectedCreature(creature);
@@ -37,13 +38,22 @@ const AdoptableCreatures = () => {
   useEffect(() => {
     const savedCreatures = localStorage.getItem('creatures');
     if (savedCreatures) {
+      setLoading(false);
       setCreatures(JSON.parse(savedCreatures))
     } else {
+      setLoading(true);
       getAllCreatures()
         .then((creatures) => {
           setCreatures(creatures);
           localStorage.setItem('creatures', JSON.stringify(creatures));
-        });
+        })
+        .catch((error) => {
+          console.error(error);
+          setError(error.message);
+        })
+        .finally(() => {
+          setLoading(false);
+        })
     }
   }, []);
 
@@ -61,27 +71,35 @@ const AdoptableCreatures = () => {
     }
   }, [selectedSizeFilter, selectedTypeFilter, selectedAlignmentFilter, creatures]);
 
+  if (error) {
+    return <div className='error-message'>{error}</div>;
+  }
+
   return (
     <div className='AdoptableCreatures'>
       <h2 className='page-title font-face-modesto-expanded'>Adoptable Creatures</h2>
-      {creatures.length === 0 && <span className='loading'>Loading...</span>}
-      <CreaturesFilter
-        onSizeFilterChange={handleSizeFilterChange}
-        onTypeFilterChange={handleTypeFilterChange}
-        onAlignmentFilterChange={handleAlignmentFilterChange}
-      />
-      <ul className='creature-list'>
-        {filteredCreatures.map((creature) => (
-          creature.image &&
-          <Link to={`/adoptable-creatures/${creature.index}`}
-            key={creature.index}
-            className='creature-link'
-          >
-            <CreatureCard key={creature.index} creature={creature} onClick={() => selectCreature(creature)} />
-          </Link>
-        ))}
-      </ul>
-      {filteredCreatures.length === 0 && <span className='no-results'>No creatures match your search.</span>}
+      {loading && <span className='loading'>Loading...</span>}
+      {!loading && (
+        <>
+          <CreaturesFilter
+            onSizeFilterChange={handleSizeFilterChange}
+            onTypeFilterChange={handleTypeFilterChange}
+            onAlignmentFilterChange={handleAlignmentFilterChange}
+          />
+          <ul className='creature-list'>
+            {filteredCreatures.map((creature) => (
+              creature.image &&
+              <Link to={`/adoptable-creatures/${creature.index}`}
+                key={creature.index}
+                className='creature-link'
+              >
+                <CreatureCard key={creature.index} creature={creature} onClick={() => selectCreature(creature)} />
+              </Link>
+            ))}
+          </ul>
+          {filteredCreatures.length === 0 && <span className='no-results'>No creatures match your search.</span>}
+        </>
+      )}
     </div>
   );
 };
