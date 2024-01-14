@@ -1,6 +1,13 @@
+import { useState } from 'react';
 import './Home.css';
 
 const Home = () => {
+  const [error, setError] = useState(null);
+
+  if (error) {
+    return <div className='error-message'>{error}</div>;
+  }
+
   return (
     <div className='Home'>
       <img 
