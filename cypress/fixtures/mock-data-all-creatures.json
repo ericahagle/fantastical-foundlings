@@ -1,0 +1,35 @@
+{
+  "count": 6,
+  "results": [
+    {
+      "index": "aboleth",
+      "name": "Aboleth",
+      "url": "/api/monsters/aboleth"
+    },
+    {
+      "index": "ape",
+      "name": "Ape",
+      "url": "/api/monsters/ape"
+    },
+    {
+      "index": "ancient-black-dragon",
+      "name": "Ancient Black Dragon",
+      "url": "/api/monsters/ancient-black-dragon"
+    },
+    {
+      "index": "mimic",
+      "name": "Mimic",
+      "url": "/api/monsters/mimic"
+    },
+    {
+      "index": "weasel",
+      "name": "Weasel",
+      "url": "/api/monsters/weasel"
+    },
+    {
+      "index": "zombie",
+      "name": "Zombie",
+      "url": "/api/monsters/zombie"
+    }
+  ]
+}
