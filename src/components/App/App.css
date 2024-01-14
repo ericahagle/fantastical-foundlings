@@ -14,11 +14,19 @@
   font-family: 'Modesto-Poster';
 }
 
+.loading,
 .error-message {
-  color: #d32430;
+  font-family: 'Modesto-Expanded';
   font-size: xx-large;
   padding-top: 1em;
-  font-family: 'Modesto-Expanded';
   padding-left: 5em;
   padding-right: 5em;
+}
+
+.error-message {
+  color: #d32430;
+}
+
+.loading {
+  color: #bbbcac;
 }
