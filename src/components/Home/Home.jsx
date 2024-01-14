@@ -9,8 +9,8 @@ const Home = () => {
       alt='Two images next to one another. The first image is of a character with their small dragon familiar and the second image is of a different character with their large pet bear'
       />
       <div className='main-page-copy'>
-        <h2 className='greeting font-face-modesto-poster'>Greetings fellow travelers!</h2>
-        <div className='mission font-face-modesto-poster'>
+        <h2 className='greeting'>Greetings fellow travelers!</h2>
+        <div className='mission'>
           <p>
             Is it lonely in the back of the cart traveling from city to city looking for work? Are your arcane studies progressing to the point where you can control a familiar? Or maybe you've been at this game for so long that you're recently had to retire an old familiar, friend, or companion.
           </p>
