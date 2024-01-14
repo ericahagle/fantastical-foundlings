@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 import './Home.css';
 
 const Home = () => {
@@ -33,9 +32,5 @@ const Home = () => {
     </div>
   );
 };
-
-Home.propTypes = {
-  error: PropTypes.string
-}
 
 export default Home;
