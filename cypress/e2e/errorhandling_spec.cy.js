@@ -40,6 +40,26 @@ describe('Error Handling', () => {
     cy.get('.error-message').contains('Uh oh! Looks like you rolled a Natural 1. Please try again.');
   });
 
+  it('should show an appropriate message if an unknown error occurs while fetching all creatures', () => {
+    cy.intercept('GET', 'https://www.dnd5eapi.co/api/monsters', {
+      statusCode: 300,
+      fixture: '/mock-data-all-creatures-full.json'
+    }).as('getCreatures');
+    cy.visit('/adoptable-creatures');
+    cy.wait('@getCreatures');
+    cy.get('.error-message').contains('Unexpected error. Status: 300');
+  });
+
+  it('should show an appropriate message if an unknown error occurs while fetching an individual creature\'s details', () => {
+    cy.intercept('GET', 'https://www.dnd5eapi.co/api/monsters/ancient-black-dragon', {
+      statusCode: 300,
+      fixture: '/mock-data-selected-creature.json'
+    }).as('getCreature');
+    cy.visit('/adoptable-creatures/ancient-black-dragon');
+    cy.wait('@getCreature');
+    cy.get('.error-message').contains('Unexpected error. Status: 300');
+  });
+
   it('should show an appropriate message when landing on a page that doesn\'t exist', () => {
     cy.visit('/fakepath');
     cy.get('.error-message').contains('Uh oh! You seem to have landed in an unknown realm. Please Plane Shift your way back Home and try again.');
