@@ -23,6 +23,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/adoptable-creatures' element={<AdoptableCreatures />} />
         <Route path='/adoptable-creatures/:index' element={<CreatureDetail />} />
+        <Route path='/*' element={<NotFound />} />
       </Routes>
     </main>
   );
