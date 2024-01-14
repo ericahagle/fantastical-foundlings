@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Header.css';
 
 const Header = ({ children, isAdoptPage }) => {
@@ -11,5 +12,10 @@ const Header = ({ children, isAdoptPage }) => {
     </header>
   );
 };
+
+Header.propTypes = {
+  children: PropTypes.element,
+  isAdoptPage: PropTypes.bool.isRequired
+}
 
 export default Header;
