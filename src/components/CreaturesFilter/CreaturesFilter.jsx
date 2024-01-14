@@ -79,6 +79,17 @@ const CreaturesFilter = ({ onSizeFilterChange, onTypeFilterChange, onAlignmentFi
         </select>
       </label>
 
+      <label htmlFor='reset-filters-button'>
+        <button
+          id='reset-filters-button'
+          onClick={() => {
+            setSelectSizeFilter('')
+            setSelectTypeFilter('')
+            setSelectAlignmentFilter('')
+          }}
+        >Reset All Filters</button>
+      </label>
+
     </div>
   );
 };
