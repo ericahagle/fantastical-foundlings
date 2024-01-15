@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.AdoptableCreatures {
+  min-width: 100vw;
 }
 
 .font-face-modesto-condensed {
@@ -10,8 +16,8 @@
   font-family: 'Modesto-Expanded';
 }
 
-.font-face-modesto-poster {
-  font-family: 'Modesto-Poster';
+.font-face-bookman-bt-roman-headline {
+  font-family: 'BookmanBT-RomanHeadline';
 }
 
 .loading,

@@ -3,20 +3,21 @@ import './CreatureCard.css';
 
 const CreatureCard = ({ creature, onClick }) => {
   return (
-    <li className='CreatureCard' onClick={onClick}>
+    <li className='CreatureCard font-face-bookman-bt-roman-headline' onClick={onClick}>
       <h4>{creature.name}</h4>
       {creature.image && <img className='creature-image' src={`https://www.dnd5eapi.co${creature.image}`} alt={creature.name} />}
+      
       <p>
-        <strong>Size </strong>
-        {creature.size}
+        <strong>Size: </strong>
+        <span style={{whiteSpace: 'pre'}}> {creature.size}</span>
       </p>
       <p>
-        <strong>Type </strong>
-        {creature.type}
+        <strong>Type: </strong>
+        <span style={{whiteSpace: 'pre'}}> {creature.type}</span>
       </p>
       <p>
-        <strong>Alignment </strong>
-        {creature.alignment}
+        <strong>Alignment: </strong>
+        <span style={{whiteSpace: 'pre'}}> {creature.alignment}</span>
       </p>
     </li>
   );

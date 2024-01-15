@@ -5,12 +5,17 @@
   border-radius: 1em;
   list-style: none;
   padding: 1em;
+  height: 100%;
 }
 
 .CreatureCard h4 {
-  color: #d32430;
+  color: #582d30;
 }
 
 .creature-image {
   max-width: 100%;
+}
+
+p {
+  font-size: 1.25em;
 }

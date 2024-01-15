@@ -1,18 +1,64 @@
-.main-page-hero-image {
+.Home {
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  background-image: url('../../../public/paper-background.jpg');
+}
+
+.main-page-hero-image,
+.main-page-copy {
   margin-top: 1em;
 }
 
 .main-page-copy {
-  margin-top: 1em;
   margin-bottom: 2em;
-  margin-left: 10em;
-  margin-right: 10em;
+  margin-left: 2em;
+  margin-right: 2em;
 }
 
 .greeting {
-  font-size: 3em;
+  font-size: 2em;
 }
 
 .mission {
-  font-size: 1.5em;
+  font-size: 1.25em;
+}
+
+/* MEDIUM BREAKPOINT */
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .mission {
+    font-size: 1.5em;
+  }
+}
+
+/* LARGE BREAKPOINT */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .main-page-copy {
+    margin-left: 5em;
+    margin-right: 5em;
+  }
+
+  .greeting {
+    font-size: 3em;
+  }
+
+  .mission {
+    font-size: 1.5em;
+  }
+}
+
+/* X-LARGE BREAKPOINT */
+@media screen and (min-width: 1025px) {
+  .main-page-copy {
+    margin-left: 7em;
+    margin-right: 7em;
+  }
+
+  .greeting {
+    font-size: 3.5em;
+  }
+
+  .mission {
+    font-size: 2em;
+  }
 }

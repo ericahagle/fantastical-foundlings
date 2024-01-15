@@ -1,19 +1,36 @@
+.AdoptableCreatures {
+  background-image: url('../../../public/paper-background.jpg');
+}
+
+h4 {
+  font-size: 2em;
+}
+
+p {
+  font-size: 1em;
+}
+
 .creature-list {
-  padding: 20px;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
   grid-gap: 20px;
+  padding: 20px;
 }
 
 .page-title {
   color: #582d30;
-  text-shadow: 3px 3px 0 #f8d5b5;
-  font-size: xx-large;
+  text-shadow: 3px 3px 0 #bbbcac;
+  font-size: 2.5em;
 }
 
 .creature-link {
   text-decoration: none;
   color: inherit;
+}
+
+.creature-image {
+  width: 75%;
+  height: auto;
 }
 
 .no-results {

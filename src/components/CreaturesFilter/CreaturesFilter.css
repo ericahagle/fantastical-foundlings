@@ -1,0 +1,31 @@
+.CreaturesFilter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 10px;
+  margin: 5%;
+  font-size: 1.25em;
+}
+
+select {
+  margin-left: 1em;
+}
+
+select,
+.reset-filters-button {
+  font-size: 0.75em;
+}
+
+.reset-filters-button {
+  background-color: #582d30;
+  color: white;
+  padding: 10px 20px 10px 20px;
+  cursor: pointer;
+}
+
+/* LARGE, AND X-LARGE BREAKPOINTS */
+@media screen and (min-width: 768px) {
+  .CreaturesFilter {
+    flex-direction: row;
+  }
+}
