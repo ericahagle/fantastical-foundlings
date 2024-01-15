@@ -44,8 +44,9 @@ const AdoptableCreatures = () => {
       setLoading(true);
       getAllCreatures()
         .then((creatures) => {
-          setCreatures(creatures);
-          localStorage.setItem('creatures', JSON.stringify(creatures));
+          const creaturesWithImage = creatures.filter((creature) => creature.image);
+          setCreatures(creaturesWithImage);
+          localStorage.setItem('creatures', JSON.stringify(creaturesWithImage));
         })
         .catch((error) => {
           console.error(error);
