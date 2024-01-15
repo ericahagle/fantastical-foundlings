@@ -1,19 +1,12 @@
-import { useState } from 'react';
 import './Home.css';
 
 const Home = () => {
-  const [error, setError] = useState(null);
-
-  if (error) {
-    return <div className='error-message'>{error}</div>;
-  }
-
   return (
     <div className='Home'>
       <img
         className='main-page-hero-image'
         src='/main-page-hero.avif'
-        alt='Two images next to one another. The first image is of a character with their small dragon familiar and the second image is of a different character with their large pet bear'
+        alt='Two characters: one with a small dragon familiar, and the other with a large pet bear'
       />
       <div className='main-page-copy font-face-bookman-bt-roman-headline'>
         <h2 className='greeting'>Greetings fellow travelers!</h2>

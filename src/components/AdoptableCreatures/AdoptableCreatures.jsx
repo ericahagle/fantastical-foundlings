@@ -15,12 +15,8 @@ const AdoptableCreatures = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const selectCreature = (creature) => {
-    setSelectedCreature(creature);
-  };
-
-  const clearCreatureSelection = () => {
-    setSelectedCreature(null);
+  const selectCreature = (selectedCreature) => {
+    setSelectedCreature(selectedCreature);
   };
 
   const handleSizeFilterChange = (sizeFilter) => {
@@ -94,7 +90,7 @@ const AdoptableCreatures = () => {
                 key={creature.index}
                 className='creature-link'
               >
-                <CreatureCard key={creature.index} creature={creature} onClick={() => selectCreature(creature)} />
+                <CreatureCard key={creature.index} creature={creature} onClick={() => selectCreature(selectedCreature)} />
               </Link>
             ))}
           </ul>
