@@ -1,3 +1,7 @@
+  .CreatureDetail {
+    background-image: url('../../../public/paper-background.jpg');
+  }
+  
   .creature-name {
     font-size: 2em;
   }
