@@ -52,22 +52,24 @@ describe('Functional Tests', () => {
     cy.visit('/');
   });
 
-  it('should have a header with the page title and nav button', () => {
-    cy.get('.app-title').contains('Fantastical Foundlings');
-    cy.get('.nav-button').contains('Adoptable Creatures');
-  });
+  describe('Home', () => {
+    it('should have a header with the page title and nav button', () => {
+      cy.get('.app-title').contains('Fantastical Foundlings');
+      cy.get('.nav-button').contains('Adoptable Creatures');
+    });
 
-  it('should have a hero image, greeting, and copy on the main page', () => {
-    cy.get('.main-page-hero-image')
-      .should('have.attr', 'src', '/main-page-hero.avif')
-      .should('have.attr', 'alt', 'Two images next to one another. The first image is of a character with their small dragon familiar and the second image is of a different character with their large pet bear');
-    cy.get('.greeting').contains('Greetings fellow travelers!');
-    cy.get('.mission')
-      .within(() => {
-        cy.get('p').contains('Is it lonely in the back of the cart traveling from city to city looking for work? Are your arcane studies progressing to the point where you can control a familiar? Or maybe you\'ve been at this game for so long that you\'re recently had to retire an old familiar, friend, or companion.');
-        cy.get('p').contains('You\'re neither royalty nor made of coin, and you know full well not to listen to the hucksters peddling magical kitties in the back alleys of the local port town. And by now, we all know not to purchase a baby dragon from a shop. So give us a look, here at the Fantastical Foundlings rescue, where we re-home everything from the most special little magical babies to the most mammoth countryside-burning critters. Good, bad, non-committal, cats … we have them all and they all have the same thing in common: They are ready to set out on their next big adventure with you.');
-        cy.get('p').contains('Peruse the site, and if you see a compatible companion, reach out to us via a basic third-level Sending message and we\'ll get back to you as soon as we\'ve taken a long rest. (Rates of 25 words or fewer apply.)');
-      });
+    it('should have a hero image, greeting, and copy on the main page', () => {
+      cy.get('.main-page-hero-image')
+        .should('have.attr', 'src', '/main-page-hero.avif')
+        .should('have.attr', 'alt', 'Two images next to one another. The first image is of a character with their small dragon familiar and the second image is of a different character with their large pet bear');
+      cy.get('.greeting').contains('Greetings fellow travelers!');
+      cy.get('.mission')
+        .within(() => {
+          cy.get('p').contains('Is it lonely in the back of the cart traveling from city to city looking for work? Are your arcane studies progressing to the point where you can control a familiar? Or maybe you\'ve been at this game for so long that you\'re recently had to retire an old familiar, friend, or companion.');
+          cy.get('p').contains('You\'re neither royalty nor made of coin, and you know full well not to listen to the hucksters peddling magical kitties in the back alleys of the local port town. And by now, we all know not to purchase a baby dragon from a shop. So give us a look, here at the Fantastical Foundlings rescue, where we re-home everything from the most special little magical babies to the most mammoth countryside-burning critters. Good, bad, non-committal, cats … we have them all and they all have the same thing in common: They are ready to set out on their next big adventure with you.');
+          cy.get('p').contains('Peruse the site, and if you see a compatible companion, reach out to us via a basic third-level Sending message and we\'ll get back to you as soon as we\'ve taken a long rest. (Rates of 25 words or fewer apply.)');
+        });
+    });
   });
 
   describe('Adoptable Creatures', () => {
@@ -78,8 +80,8 @@ describe('Functional Tests', () => {
 
     it('should render Header correctly when landing on the Adoptable Creatures page', () => {
       cy.url().should('eq', 'http://localhost:3000/adoptable-creatures');
-      cy.get('.nav-button').should('not.exist');
       cy.get('.app-title-link').should('have.attr', 'href', '/');
+      cy.get('.nav-button').should('not.exist');
     });
 
     it('should render page elements correctly when landing on the Adoptable Creatures page', () => {
@@ -259,11 +261,70 @@ describe('Functional Tests', () => {
           cy.get('p').contains('Alignment neutral evil');
         });
     });
-    
-    // describe('Creature Detail', () => {
-    //   beforeEach(() => {
 
-    //   });
-    // });
+    describe('Creature Detail', () => {
+      beforeEach(() => {
+        cy.get('.creature-link').contains('Ancient Black Dragon').click();
+        cy.wait('@getAncientBlackDragon');
+      });
+
+      it('should render Header correctly when landing on a Creature Detail page', () => {
+        cy.url().should('eq', 'http://localhost:3000/adoptable-creatures/ancient-black-dragon')
+        cy.get('.app-title-link').should('have.attr', 'href', '/');
+        cy.get('.nav-link').should('have.attr', 'href', '/adoptable-creatures');
+      });
+
+      it('should render page elements correctly when landing on a Creature Detail page', () => {
+        cy.get('.creature-name').contains('Ancient Black Dragon');
+
+        cy.get('.selected-creature-image')
+          .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/ancient-black-dragon.png')
+          .should('have.attr', 'alt', 'Ancient Black Dragon');
+
+        cy.get('p').contains('Size: Gargantuan');
+        cy.get('p').contains('Type: dragon');
+        cy.get('p').contains('Alignment: chaotic evil');
+        cy.get('p').contains('Armor Class: 22');
+        cy.get('p').contains('Walk Speed: 40 ft.');
+        cy.get('p').contains('Fly Speed: 80 ft.');
+        cy.get('p').contains('Swim Speed: 40 ft.');
+        cy.get('p').contains('Hit Points: 367');
+        cy.get('p').contains('Strength: 27');
+        cy.get('p').contains('Dexterity: 14');
+        cy.get('p').contains('Constitution: 25');
+        cy.get('p').contains('Intelligence: 16');
+        cy.get('p').contains('Wisdom: 15');
+        cy.get('p').contains('Charisma: 19');
+        cy.get('p').contains('Languages: Common, Draconic');
+
+        cy.get('div').eq(2).within(() => {
+          cy.contains('p', 'Special Abilities');
+          cy.contains('p', 'Amphibious: The dragon can breathe air and water.');
+          cy.contains('p', 'Legendary Resistance: If the dragon fails a saving throw, it can choose to succeed instead.');
+        });
+
+        cy.get('div').eq(3).within(() => {
+          cy.contains('p', 'Actions');
+          cy.contains('p', 'Multiattack: The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.');
+          cy.contains('p', 'Bite: Melee Weapon Attack:+ 15 to hit, reach 15 ft., one target. Hit: 19 (2d10 + 8) piercing damage plus 9 (2d8) acid damage.');
+          cy.contains('p', 'Claw: Melee Weapon Attack: +15 to hit, reach 10 ft., one target. Hit: 15 (2d6 + 8) slashing damage.');
+          cy.contains('p', 'Tail: Melee Weapon Attack: +15 to hit, reach 20 ft., one target. Hit: 17 (2d8 + 8) bludgeoning damage.');
+          cy.contains('p', 'Frightful Presence: Each creature of the dragon\'s choice that is within 120 feet of the dragon and aware of it must succeed on a DC 19 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature\'s saving throw is successful or the effect ends for it, the creature is immune to the dragon\'s Frightful Presence for the next 24 hours.');
+          cy.contains('p', 'Acid Breath: The dragon exhales acid in a 90-foot line that is 10 feet wide. Each creature in that line must make a DC 22 Dexterity saving throw, taking 67 (15d8) acid damage on a failed save, or half as much damage on a successful one.');
+        });
+
+        cy.get('div').eq(4).within(() => {
+          cy.contains('p', 'Legendary Actions');
+          cy.contains('p', 'Detect: The dragon makes a Wisdom (Perception) check.');
+          cy.contains('p', 'Tail Attack: The dragon makes a tail attack.');
+          cy.contains('p', 'Wing Attack (Costs 2 Actions): The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 23 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.');
+        });
+      });
+
+      it('should return Home when the app title is clicked', () => {
+        cy.get('.app-title').contains('Fantastical Foundlings').click();
+        cy.url().should('eq', 'http://localhost:3000/');
+      });
+    });
   });
 });
