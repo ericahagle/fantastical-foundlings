@@ -7,11 +7,6 @@
       "url": "/api/monsters/aboleth"
     },
     {
-      "index": "ape",
-      "name": "Ape",
-      "url": "/api/monsters/ape"
-    },
-    {
       "index": "ancient-black-dragon",
       "name": "Ancient Black Dragon",
       "url": "/api/monsters/ancient-black-dragon"
@@ -20,6 +15,11 @@
       "index": "ankheg",
       "name": "Ankheg",
       "url": "/api/monsters/ankheg"
+    },
+    {
+      "index": "ape",
+      "name": "Ape",
+      "url": "/api/monsters/ape"
     },
     {
       "index": "weasel",

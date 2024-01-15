@@ -164,8 +164,102 @@ describe('Functional Tests', () => {
         });
     });
 
-    it('should render creature cards correctly when using the filters')
+    it('should render creature cards correctly when using the filters', () => {
+      cy.get('#select-alignment')
+        .select('Unaligned')
+        .invoke('val')
+        .should('eq', 'unaligned');
 
+      cy.get('.creature-link').should('have.length', 3);
+      cy.get('.creature-link').children().first()
+        .within(() => {
+          cy.contains('h4', 'Ankheg');
+          cy.get('.creature-image')
+            .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/ankheg.png')
+            .should('have.attr', 'alt', 'Ankheg');
+          cy.get('p').contains('Size Large');
+          cy.get('p').contains('Type monstrosity');
+          cy.get('p').contains('Alignment unaligned');
+        });
+      cy.get('.creature-link').children().last()
+        .within(() => {
+          cy.contains('h4', 'Weasel');
+          cy.get('.creature-image')
+            .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/weasel.png')
+            .should('have.attr', 'alt', 'Weasel');
+          cy.get('p').contains('Size Tiny');
+          cy.get('p').contains('Type beast');
+          cy.get('p').contains('Alignment unaligned');
+        });
+
+      cy.get('#select-type')
+        .select('Beast')
+        .invoke('val')
+        .should('eq', 'beast');
+
+      cy.get('.creature-link').should('have.length', 2);
+      cy.get('.creature-link').children().first()
+        .within(() => {
+          cy.contains('h4', 'Ape');
+          cy.get('.creature-image')
+            .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/ape.png')
+            .should('have.attr', 'alt', 'Ape');
+          cy.get('p').contains('Size Medium');
+          cy.get('p').contains('Type beast');
+          cy.get('p').contains('Alignment unaligned');
+        });
+      cy.get('.creature-link').children().last()
+        .within(() => {
+          cy.contains('h4', 'Weasel');
+          cy.get('.creature-image')
+            .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/weasel.png')
+            .should('have.attr', 'alt', 'Weasel');
+          cy.get('p').contains('Size Tiny');
+          cy.get('p').contains('Type beast');
+          cy.get('p').contains('Alignment unaligned');
+        });
+
+      cy.get('#select-size')
+        .select('Tiny')
+        .invoke('val')
+        .should('eq', 'Tiny');
+
+      cy.get('.creature-link').should('have.length', 1);
+      cy.get('.creature-link').children().first()
+        .within(() => {
+          cy.contains('h4', 'Weasel');
+          cy.get('.creature-image')
+            .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/weasel.png')
+            .should('have.attr', 'alt', 'Weasel');
+          cy.get('p').contains('Size Tiny');
+          cy.get('p').contains('Type beast');
+          cy.get('p').contains('Alignment unaligned');
+        });
+
+      cy.get('#reset-filters-button').click();
+      cy.get('.creature-link').should('have.length', 6);
+      cy.get('.creature-link').children().first()
+        .within(() => {
+          cy.contains('h4', 'Aboleth');
+          cy.get('.creature-image')
+            .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/aboleth.png')
+            .should('have.attr', 'alt', 'Aboleth');
+          cy.get('p').contains('Size Large');
+          cy.get('p').contains('Type aberration');
+          cy.get('p').contains('Alignment lawful evil');
+        });
+      cy.get('.creature-link').children().last()
+        .within(() => {
+          cy.contains('h4', 'Zombie');
+          cy.get('.creature-image')
+            .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/zombie.png')
+            .should('have.attr', 'alt', 'Zombie');
+          cy.get('p').contains('Size Medium');
+          cy.get('p').contains('Type undead');
+          cy.get('p').contains('Alignment neutral evil');
+        });
+    });
+    
     // describe('Creature Detail', () => {
     //   beforeEach(() => {
 
