@@ -17,9 +17,9 @@
       "url": "/api/monsters/ancient-black-dragon"
     },
     {
-      "index": "mimic",
-      "name": "Mimic",
-      "url": "/api/monsters/mimic"
+      "index": "ankheg",
+      "name": "Ankheg",
+      "url": "/api/monsters/ankheg"
     },
     {
       "index": "weasel",

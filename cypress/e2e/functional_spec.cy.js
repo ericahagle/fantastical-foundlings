@@ -29,11 +29,11 @@ describe('Functional Tests', () => {
     ).as('getAncientBlackDragon');
 
     cy.intercept(
-      'GET', 'https://www.dnd5eapi.co/api/monsters/mimic', {
+      'GET', 'https://www.dnd5eapi.co/api/monsters/ankheg', {
       statusCode: 200,
-      fixture: '/mock-data-mimic.json'
+      fixture: '/mock-data-ankheg.json'
     }
-    ).as('getMimic');
+    ).as('getAnkheg');
 
     cy.intercept(
       'GET', 'https://www.dnd5eapi.co/api/monsters/weasel', {
@@ -73,7 +73,7 @@ describe('Functional Tests', () => {
   describe('Adoptable Creatures', () => {
     beforeEach(() => {
       cy.get('.nav-button').click();
-      cy.wait(['@getAllCreatures', '@getAboleth', '@getApe', '@getAncientBlackDragon', '@getMimic', '@getWeasel', '@getZombie']);
+      cy.wait(['@getAllCreatures', '@getAboleth', '@getApe', '@getAncientBlackDragon', '@getAnkheg', '@getWeasel', '@getZombie']);
     });
 
     it('should render Header correctly when landing on the Adoptable Creatures page', () => {
@@ -82,7 +82,7 @@ describe('Functional Tests', () => {
       cy.get('.app-title-link').should('have.attr', 'href', '/');
     });
 
-    it('should render page elements correctly on the Adoptable Creatures page', () => {
+    it('should render page elements correctly when landing on the Adoptable Creatures page', () => {
       cy.get('.page-title').contains('Adoptable Creatures');
 
       cy.get('.filter-wrapper').children().first()
@@ -135,7 +135,12 @@ describe('Functional Tests', () => {
         .within(() => {
           cy.contains('#reset-filters-button', 'Reset All Filters');
         });
-      
+
+      cy.get('.creature-list').children().first()
+        .should('have.attr', 'href', '/adoptable-creatures/aboleth');
+      cy.get('.creature-list').children().last()
+        .should('have.attr', 'href', '/adoptable-creatures/zombie');
+
       cy.get('.creature-link').should('have.length', 6);
       cy.get('.creature-link').children().first()
         .within(() => {
@@ -143,10 +148,28 @@ describe('Functional Tests', () => {
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/aboleth.png')
             .should('have.attr', 'alt', 'Aboleth');
-        })
-
+          cy.get('p').contains('Size Large');
+          cy.get('p').contains('Type aberration');
+          cy.get('p').contains('Alignment lawful evil');
+        });
+      cy.get('.creature-link').children().last()
+        .within(() => {
+          cy.contains('h4', 'Zombie');
+          cy.get('.creature-image')
+            .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/zombie.png')
+            .should('have.attr', 'alt', 'Zombie');
+          cy.get('p').contains('Size Medium');
+          cy.get('p').contains('Type undead');
+          cy.get('p').contains('Alignment neutral evil');
+        });
     });
 
-  });
+    it('should render creature cards correctly when using the filters')
 
+    // describe('Creature Detail', () => {
+    //   beforeEach(() => {
+
+    //   });
+    // });
+  });
 });
