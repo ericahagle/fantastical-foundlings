@@ -12,14 +12,14 @@ p {
 
 .creature-list {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
   grid-gap: 20px;
   padding: 20px;
 }
 
 .page-title {
   color: #582d30;
-  text-shadow: 3px 3px 0 #f8d5b5;
+  text-shadow: 3px 3px 0 #bbbcac;
   font-size: 2.5em;
 }
 
@@ -35,49 +35,4 @@ p {
 
 .no-results {
   font-size: x-large;
-}
-
-/* MEDIUM BREAKPOINT */
-@media screen and (max-width: 768px) and (min-width: 481px) {
-  h4 {
-    font-size: 2em;
-  }
-
-  p {
-    font-size: 1em;
-  }
-
-  .creature-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* LARGE BREAKPOINT */
-@media screen and (max-width: 1024px) and (min-width: 769px) {
-  h4 {
-    font-size: 1.5em;
-  }
-
-  p {
-    font-size: 1em;
-  }
-
-  .creature-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* X-LARGE BREAKPOINT */
-@media screen and (min-width: 1025px) {
-  h4 {
-    font-size: 1.5em;
-  }
-
-  p {
-    font-size: 1em;
-  }
-
-  .creature-list {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }

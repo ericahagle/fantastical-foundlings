@@ -9,37 +9,13 @@
 }
 
 .CreatureCard h4 {
-  color: #d32430;
+  color: #582d30;
 }
 
 .creature-image {
   max-width: 100%;
 }
 
-/* SMALL BREAKPOINT */
-/* @media screen and (max-width: 480px) {
-  header {
-    
-  }
-} */
-
-/* MEDIUM BREAKPOINT */
-/* @media screen and (max-width: 768px) and (min-width: 481px) {
-  header {
-    
-  }
-} */
-
-/* LARGE BREAKPOINT */
-/* @media screen and (max-width: 1024px) and (min-width: 769px) {
-  header {
-    
-  }
-} */
-
-/* X-LARGE BREAKPOINT */
-/* @media screen and (min-width: 1025px) {
-  header {
-    
-  }
-} */
+p {
+  font-size: 1.25em;
+}

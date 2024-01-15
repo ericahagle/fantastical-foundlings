@@ -2,7 +2,6 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-
 }
 
 .AdoptableCreatures {
@@ -17,8 +16,8 @@
   font-family: 'Modesto-Expanded';
 }
 
-.font-face-modesto-poster {
-  font-family: 'Modesto-Poster';
+.font-face-bookman-bt-roman-headline {
+  font-family: 'BookmanBT-RomanHeadline';
 }
 
 .loading,
@@ -37,31 +36,3 @@
 .loading {
   color: #bbbcac;
 }
-
-/* SMALL BREAKPOINT */
-/* @media screen and (max-width: 480px) {
-  header {
-    
-  }
-} */
-
-/* MEDIUM BREAKPOINT */
-/* @media screen and (max-width: 768px) and (min-width: 481px) {
-  header {
-    
-  }
-} */
-
-/* LARGE BREAKPOINT */
-/* @media screen and (max-width: 1024px) and (min-width: 769px) {
-  header {
-    
-  }
-} */
-
-/* X-LARGE BREAKPOINT */
-/* @media screen and (min-width: 1025px) {
-  header {
-    
-  }
-} */

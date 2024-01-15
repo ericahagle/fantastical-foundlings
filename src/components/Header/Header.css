@@ -16,7 +16,7 @@ header {
 }
 
 .app-title {
-  color: #ffeff4;
+  color: whitesmoke;
   font-size: 5em;
   padding-top: 0.5em;
 }
@@ -25,5 +25,6 @@ header {
   background-color: #d32430;
   color: #ffeff4;
   font-size: 1.25em;
-  padding: 0.5em 1.5em 0.5em 1.5em;
+  padding: 10px 30px 10px 30px;
+  cursor: pointer;
 }

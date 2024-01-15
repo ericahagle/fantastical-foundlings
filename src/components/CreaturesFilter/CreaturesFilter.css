@@ -1,33 +1,31 @@
-.filter-wrapper {
+.CreaturesFilter {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   gap: 10px;
   margin: 5%;
+  font-size: 1.25em;
 }
 
 select {
   margin-left: 1em;
 }
 
-/* MEDIUM BREAKPOINT */
-@media screen and (max-width: 768px) and (min-width: 481px) {
-  .filter-wrapper {
-    flex-direction: row;
-  }
+select,
+.reset-filters-button {
+  font-size: 0.75em;
 }
 
-/* LARGE BREAKPOINT */
-@media screen and (max-width: 1024px) and (min-width: 769px) {
-  .filter-wrapper {
-    flex-direction: row;
-  }
+.reset-filters-button {
+  background-color: #582d30;
+  color: white;
+  padding: 10px 20px 10px 20px;
+  cursor: pointer;
 }
 
-/* X-LARGE BREAKPOINT */
-@media screen and (min-width: 1025px) {
-  .filter-wrapper {
+/* LARGE, AND X-LARGE BREAKPOINTS */
+@media screen and (min-width: 768px) {
+  .CreaturesFilter {
     flex-direction: row;
-    font-size: 1.25em;
   }
 }

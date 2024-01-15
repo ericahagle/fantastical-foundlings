@@ -5,12 +5,12 @@
   background-image: url('../../../public/paper-background.jpg');
 }
 
-.main-page-hero-image {
+.main-page-hero-image,
+.main-page-copy {
   margin-top: 1em;
 }
 
 .main-page-copy {
-  margin-top: 1em;
   margin-bottom: 2em;
   margin-left: 2em;
   margin-right: 2em;

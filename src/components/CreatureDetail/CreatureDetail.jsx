@@ -14,7 +14,7 @@ const CreatureDetail = () => {
       return (
         <p className='paragraph-of-details'>
           <strong className='detail-category'>{label}:</strong>
-          <span style={{whiteSpace: 'pre'}}> {value}</span>
+          <span style={{whiteSpace: 'pre-wrap', wordWrap: 'break-word'}}> {value}</span>
         </p>
       );
     };
@@ -59,7 +59,7 @@ const CreatureDetail = () => {
   }
 
   return (
-    <div className='CreatureDetail'>
+    <div className='CreatureDetail font-face-bookman-bt-roman-headline'>
       {loading && <span className='loading'>Loading...</span>}
       {!loading && (
         <div className='creature-detail-container'>

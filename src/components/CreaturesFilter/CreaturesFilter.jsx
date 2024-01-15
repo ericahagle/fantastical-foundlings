@@ -14,12 +14,13 @@ const CreaturesFilter = ({ onSizeFilterChange, onTypeFilterChange, onAlignmentFi
   }, [selectSizeFilter, selectTypeFilter, selectAlignmentFilter, onSizeFilterChange, onTypeFilterChange, onAlignmentFilterChange]);
 
   return (
-    <div className='filter-wrapper'>
+    <div className='CreaturesFilter font-face-bookman-bt-roman-headline'>
 
       <label htmlFor='select-size'>Filter By Size
         <select
           value={selectSizeFilter}
           id='select-size'
+          className='select font-face-bookman-bt-roman-headline'
           onChange={(event) => {
             setSelectSizeFilter(event.currentTarget.value)
           }}
@@ -38,6 +39,7 @@ const CreaturesFilter = ({ onSizeFilterChange, onTypeFilterChange, onAlignmentFi
         <select
           value={selectTypeFilter}
           id='select-type'
+          className='select font-face-bookman-bt-roman-headline'
           onChange={(event) => {
             setSelectTypeFilter(event.currentTarget.value)
           }}
@@ -60,6 +62,7 @@ const CreaturesFilter = ({ onSizeFilterChange, onTypeFilterChange, onAlignmentFi
         <select
           value={selectAlignmentFilter}
           id='select-alignment'
+          className='select font-face-bookman-bt-roman-headline'
           onChange={(event) => {
             setSelectAlignmentFilter(event.currentTarget.value)
           }}
@@ -83,6 +86,7 @@ const CreaturesFilter = ({ onSizeFilterChange, onTypeFilterChange, onAlignmentFi
       <label htmlFor='reset-filters-button'>
         <button
           id='reset-filters-button'
+          className='reset-filters-button font-face-modesto-expanded'
           onClick={() => {
             setSelectSizeFilter('')
             setSelectTypeFilter('')
