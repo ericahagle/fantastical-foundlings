@@ -12,7 +12,7 @@ describe('Error Handling', () => {
   it('should show an appropriate message if a server error occurs while fetching an individual creature\'s details', () => {
     cy.intercept('GET', 'https://www.dnd5eapi.co/api/monsters/ancient-black-dragon', {
       statusCode: 500,
-      fixture: '/mock-data-selected-creature.json'
+      fixture: '/mock-data-ancient-black-dragon.json'
     }).as('getCreature');
     cy.visit('/adoptable-creatures/ancient-black-dragon');
     cy.wait('@getCreature');
@@ -33,7 +33,7 @@ describe('Error Handling', () => {
   it('should show an appropriate message if a client error occurs while fetching an individual creature\'s details', () => {
     cy.intercept('GET', 'https://www.dnd5eapi.co/api/monsters/ancient-black-dragon', {
       statusCode: 400,
-      fixture: '/mock-data-selected-creature.json'
+      fixture: '/mock-data-ancient-black-dragon.json'
     }).as('getCreature');
     cy.visit('/adoptable-creatures/ancient-black-dragon');
     cy.wait('@getCreature');
@@ -53,7 +53,7 @@ describe('Error Handling', () => {
   it('should show an appropriate message if an unknown error occurs while fetching an individual creature\'s details', () => {
     cy.intercept('GET', 'https://www.dnd5eapi.co/api/monsters/ancient-black-dragon', {
       statusCode: 300,
-      fixture: '/mock-data-selected-creature.json'
+      fixture: '/mock-data-ancient-black-dragon.json'
     }).as('getCreature');
     cy.visit('/adoptable-creatures/ancient-black-dragon');
     cy.wait('@getCreature');
