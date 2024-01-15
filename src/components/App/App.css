@@ -2,7 +2,11 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  min-width: 100vh;
+
+}
+
+.AdoptableCreatures {
+  min-width: 100vw;
 }
 
 .font-face-modesto-condensed {

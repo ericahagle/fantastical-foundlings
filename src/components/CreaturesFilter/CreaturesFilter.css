@@ -1,0 +1,33 @@
+.filter-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 10px;
+  margin: 5%;
+}
+
+select {
+  margin-left: 1em;
+}
+
+/* MEDIUM BREAKPOINT */
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .filter-wrapper {
+    flex-direction: row;
+  }
+}
+
+/* LARGE BREAKPOINT */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .filter-wrapper {
+    flex-direction: row;
+  }
+}
+
+/* X-LARGE BREAKPOINT */
+@media screen and (min-width: 1025px) {
+  .filter-wrapper {
+    flex-direction: row;
+    font-size: 1.25em;
+  }
+}
