@@ -10,10 +10,10 @@ const Home = () => {
 
   return (
     <div className='Home'>
-      <img 
-      className='main-page-hero-image'
-      src='/main-page-hero.avif'
-      alt='Two images next to one another. The first image is of a character with their small dragon familiar and the second image is of a different character with their large pet bear'
+      <img
+        className='main-page-hero-image'
+        src='/main-page-hero.avif'
+        alt='Two images next to one another. The first image is of a character with their small dragon familiar and the second image is of a different character with their large pet bear'
       />
       <div className='main-page-copy font-face-bookman-bt-roman-headline'>
         <h2 className='greeting'>Greetings fellow travelers!</h2>
