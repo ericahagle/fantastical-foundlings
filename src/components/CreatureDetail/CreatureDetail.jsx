@@ -13,8 +13,8 @@ const CreatureDetail = () => {
     if (value) {
       return (
         <p className='paragraph-of-details'>
-          <strong className='detail-category'>{label}: </strong>
-          {value}
+          <strong className='detail-category'>{label}:</strong>
+          <span style={{whiteSpace: 'pre'}}> {value}</span>
         </p>
       );
     };
@@ -63,7 +63,7 @@ const CreatureDetail = () => {
       {loading && <span className='loading'>Loading...</span>}
       {!loading && (
         <div className='creature-detail-container'>
-          <div className='left-side'>
+          <div className='creature-intro'>
             <h2 className='creature-name'>{selectedCreature.name}</h2>
             {selectedCreature.image && (
               <img className='selected-creature-image'
@@ -73,7 +73,7 @@ const CreatureDetail = () => {
             )}
           </div>
 
-          <div className='right-side'>
+          <div className='base-stats'>
             {renderElementIfExists('Size', selectedCreature.size)}
             {renderElementIfExists('Type', selectedCreature.type)}
             {renderElementIfExists('Alignment', selectedCreature.alignment)}
@@ -91,7 +91,7 @@ const CreatureDetail = () => {
             {renderElementIfExists('Languages', selectedCreature.languages)}
           </div>
 
-          <div className='full-width'>
+          <div className='extra-stats'>
             {renderArrayIfExists('Special Abilities', selectedCreature.special_abilities)}
             {renderArrayIfExists('Actions', selectedCreature.actions)}
             {renderArrayIfExists('Legendary Actions', selectedCreature.legendary_actions)}
