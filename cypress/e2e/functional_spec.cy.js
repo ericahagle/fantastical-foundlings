@@ -61,7 +61,7 @@ describe('Functional Tests', () => {
     it('should have a hero image, greeting, and copy on the main page', () => {
       cy.get('.main-page-hero-image')
         .should('have.attr', 'src', '/main-page-hero.avif')
-        .should('have.attr', 'alt', 'Two images next to one another. The first image is of a character with their small dragon familiar and the second image is of a different character with their large pet bear');
+        .should('have.attr', 'alt', 'Two characters: one with a small dragon familiar, and the other with a large pet bear');
       cy.get('.greeting').contains('Greetings fellow travelers!');
       cy.get('.mission')
         .within(() => {
@@ -87,7 +87,7 @@ describe('Functional Tests', () => {
     it('should render page elements correctly when landing on the Adoptable Creatures page', () => {
       cy.get('.page-title').contains('Adoptable Creatures');
 
-      cy.get('.filter-wrapper').children().first()
+      cy.get('.CreaturesFilter').children().first()
         .within(() => {
           cy.contains('Filter By Size');
           cy.contains('All Sizes');
@@ -99,7 +99,7 @@ describe('Functional Tests', () => {
           cy.contains('Gargantuan');
         });
 
-      cy.get('.filter-wrapper').children().eq(1)
+      cy.get('.CreaturesFilter').children().eq(1)
         .within(() => {
           cy.contains('Filter By Type');
           cy.contains('All Types');
@@ -115,7 +115,7 @@ describe('Functional Tests', () => {
           cy.contains('Undead');
         });
 
-      cy.get('.filter-wrapper').children().eq(2)
+      cy.get('.CreaturesFilter').children().eq(2)
         .within(() => {
           cy.contains('Filter By Alignment');
           cy.contains('All Alignments');
@@ -133,7 +133,7 @@ describe('Functional Tests', () => {
           cy.contains('Any Non-Good Alignment');
         });
 
-      cy.get('.filter-wrapper').children().last()
+      cy.get('.CreaturesFilter').children().last()
         .within(() => {
           cy.contains('#reset-filters-button', 'Reset All Filters');
         });
@@ -150,9 +150,9 @@ describe('Functional Tests', () => {
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/aboleth.png')
             .should('have.attr', 'alt', 'Aboleth');
-          cy.get('p').contains('Size Large');
-          cy.get('p').contains('Type aberration');
-          cy.get('p').contains('Alignment lawful evil');
+          cy.get('p').contains('Size: Large');
+          cy.get('p').contains('Type: aberration');
+          cy.get('p').contains('Alignment: lawful evil');
         });
       cy.get('.creature-link').children().last()
         .within(() => {
@@ -160,9 +160,9 @@ describe('Functional Tests', () => {
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/zombie.png')
             .should('have.attr', 'alt', 'Zombie');
-          cy.get('p').contains('Size Medium');
-          cy.get('p').contains('Type undead');
-          cy.get('p').contains('Alignment neutral evil');
+          cy.get('p').contains('Size: Medium');
+          cy.get('p').contains('Type: undead');
+          cy.get('p').contains('Alignment: neutral evil');
         });
     });
 
@@ -179,9 +179,9 @@ describe('Functional Tests', () => {
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/ankheg.png')
             .should('have.attr', 'alt', 'Ankheg');
-          cy.get('p').contains('Size Large');
-          cy.get('p').contains('Type monstrosity');
-          cy.get('p').contains('Alignment unaligned');
+          cy.get('p').contains('Size: Large');
+          cy.get('p').contains('Type: monstrosity');
+          cy.get('p').contains('Alignment: unaligned');
         });
       cy.get('.creature-link').children().last()
         .within(() => {
@@ -189,9 +189,9 @@ describe('Functional Tests', () => {
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/weasel.png')
             .should('have.attr', 'alt', 'Weasel');
-          cy.get('p').contains('Size Tiny');
-          cy.get('p').contains('Type beast');
-          cy.get('p').contains('Alignment unaligned');
+          cy.get('p').contains('Size: Tiny');
+          cy.get('p').contains('Type: beast');
+          cy.get('p').contains('Alignment: unaligned');
         });
 
       cy.get('#select-type')
@@ -206,9 +206,9 @@ describe('Functional Tests', () => {
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/ape.png')
             .should('have.attr', 'alt', 'Ape');
-          cy.get('p').contains('Size Medium');
-          cy.get('p').contains('Type beast');
-          cy.get('p').contains('Alignment unaligned');
+          cy.get('p').contains('Size: Medium');
+          cy.get('p').contains('Type: beast');
+          cy.get('p').contains('Alignment: unaligned');
         });
       cy.get('.creature-link').children().last()
         .within(() => {
@@ -216,9 +216,9 @@ describe('Functional Tests', () => {
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/weasel.png')
             .should('have.attr', 'alt', 'Weasel');
-          cy.get('p').contains('Size Tiny');
-          cy.get('p').contains('Type beast');
-          cy.get('p').contains('Alignment unaligned');
+          cy.get('p').contains('Size: Tiny');
+          cy.get('p').contains('Type: beast');
+          cy.get('p').contains('Alignment: unaligned');
         });
 
       cy.get('#select-size')
@@ -233,9 +233,9 @@ describe('Functional Tests', () => {
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/weasel.png')
             .should('have.attr', 'alt', 'Weasel');
-          cy.get('p').contains('Size Tiny');
-          cy.get('p').contains('Type beast');
-          cy.get('p').contains('Alignment unaligned');
+          cy.get('p').contains('Size: Tiny');
+          cy.get('p').contains('Type: beast');
+          cy.get('p').contains('Alignment: unaligned');
         });
 
       cy.get('#reset-filters-button').click();
@@ -246,9 +246,9 @@ describe('Functional Tests', () => {
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/aboleth.png')
             .should('have.attr', 'alt', 'Aboleth');
-          cy.get('p').contains('Size Large');
-          cy.get('p').contains('Type aberration');
-          cy.get('p').contains('Alignment lawful evil');
+          cy.get('p').contains('Size: Large');
+          cy.get('p').contains('Type: aberration');
+          cy.get('p').contains('Alignment: lawful evil');
         });
       cy.get('.creature-link').children().last()
         .within(() => {
@@ -256,9 +256,9 @@ describe('Functional Tests', () => {
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/zombie.png')
             .should('have.attr', 'alt', 'Zombie');
-          cy.get('p').contains('Size Medium');
-          cy.get('p').contains('Type undead');
-          cy.get('p').contains('Alignment neutral evil');
+          cy.get('p').contains('Size: Medium');
+          cy.get('p').contains('Type: undead');
+          cy.get('p').contains('Alignment: neutral evil');
         });
     });
 
@@ -303,7 +303,7 @@ describe('Functional Tests', () => {
           cy.contains('p', 'Legendary Resistance: If the dragon fails a saving throw, it can choose to succeed instead.');
         });
 
-        cy.get('div').eq(3).within(() => {
+        cy.get('div').eq(5).within(() => {
           cy.contains('p', 'Actions');
           cy.contains('p', 'Multiattack: The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.');
           cy.contains('p', 'Bite: Melee Weapon Attack:+ 15 to hit, reach 15 ft., one target. Hit: 19 (2d10 + 8) piercing damage plus 9 (2d8) acid damage.');
@@ -313,7 +313,7 @@ describe('Functional Tests', () => {
           cy.contains('p', 'Acid Breath: The dragon exhales acid in a 90-foot line that is 10 feet wide. Each creature in that line must make a DC 22 Dexterity saving throw, taking 67 (15d8) acid damage on a failed save, or half as much damage on a successful one.');
         });
 
-        cy.get('div').eq(4).within(() => {
+        cy.get('div').eq(8).within(() => {
           cy.contains('p', 'Legendary Actions');
           cy.contains('p', 'Detect: The dragon makes a Wisdom (Perception) check.');
           cy.contains('p', 'Tail Attack: The dragon makes a tail attack.');
