@@ -1,4 +1,9 @@
 header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  min-width: 100vh;
   background-color: #582d30;
   padding-bottom: 2em;
   margin-top: -3em;
@@ -10,13 +15,13 @@ header {
 
 .app-title {
   color: #ffeff4;
-  font-size: 4em;
+  font-size: 8em;
   padding-top: 0.5em;
 }
 
 .nav-button {
   background-color: #d32430;
   color: #ffeff4;
-  font-size: 1em;
+  font-size: 2em;
   padding: 0.5em 1.5em 0.5em 1.5em;
 }

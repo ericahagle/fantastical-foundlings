@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-width: 100vh;
 }
 
 .font-face-modesto-condensed {
@@ -30,3 +33,31 @@
 .loading {
   color: #bbbcac;
 }
+
+/* SMALL BREAKPOINT */
+/* @media screen and (max-width: 480px) {
+  header {
+    
+  }
+} */
+
+/* MEDIUM BREAKPOINT */
+/* @media screen and (max-width: 768px) and (min-width: 481px) {
+  header {
+    
+  }
+} */
+
+/* LARGE BREAKPOINT */
+/* @media screen and (max-width: 1024px) and (min-width: 769px) {
+  header {
+    
+  }
+} */
+
+/* X-LARGE BREAKPOINT */
+/* @media screen and (min-width: 1025px) {
+  header {
+    
+  }
+} */
