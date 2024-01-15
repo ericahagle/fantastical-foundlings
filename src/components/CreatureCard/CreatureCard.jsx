@@ -3,8 +3,8 @@ import './CreatureCard.css';
 
 const CreatureCard = ({ creature, onClick }) => {
   return (
-    <li className='CreatureCard font-face-bookman-bt-roman-headline' onClick={onClick}>
-      <h4>{creature.name}</h4>
+    <div className='CreatureCard font-face-bookman-bt-roman-headline' onClick={onClick}>
+      <h3>{creature.name}</h3>
       {creature.image && <img className='creature-image' src={`https://www.dnd5eapi.co${creature.image}`} alt={creature.name} />}
 
       <p>
@@ -19,7 +19,8 @@ const CreatureCard = ({ creature, onClick }) => {
         <strong>Alignment: </strong>
         <span style={{ whiteSpace: 'pre' }}> {creature.alignment}</span>
       </p>
-    </li>
+    </div>
+
   );
 };
 

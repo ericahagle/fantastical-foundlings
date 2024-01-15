@@ -146,7 +146,7 @@ describe('Functional Tests', () => {
       cy.get('.creature-link').should('have.length', 6);
       cy.get('.creature-link').children().first()
         .within(() => {
-          cy.contains('h4', 'Aboleth');
+          cy.contains('h3', 'Aboleth');
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/aboleth.png')
             .should('have.attr', 'alt', 'Aboleth');
@@ -156,7 +156,7 @@ describe('Functional Tests', () => {
         });
       cy.get('.creature-link').children().last()
         .within(() => {
-          cy.contains('h4', 'Zombie');
+          cy.contains('h3', 'Zombie');
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/zombie.png')
             .should('have.attr', 'alt', 'Zombie');
@@ -175,7 +175,7 @@ describe('Functional Tests', () => {
       cy.get('.creature-link').should('have.length', 3);
       cy.get('.creature-link').children().first()
         .within(() => {
-          cy.contains('h4', 'Ankheg');
+          cy.contains('h3', 'Ankheg');
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/ankheg.png')
             .should('have.attr', 'alt', 'Ankheg');
@@ -185,7 +185,7 @@ describe('Functional Tests', () => {
         });
       cy.get('.creature-link').children().last()
         .within(() => {
-          cy.contains('h4', 'Weasel');
+          cy.contains('h3', 'Weasel');
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/weasel.png')
             .should('have.attr', 'alt', 'Weasel');
@@ -202,7 +202,7 @@ describe('Functional Tests', () => {
       cy.get('.creature-link').should('have.length', 2);
       cy.get('.creature-link').children().first()
         .within(() => {
-          cy.contains('h4', 'Ape');
+          cy.contains('h3', 'Ape');
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/ape.png')
             .should('have.attr', 'alt', 'Ape');
@@ -212,7 +212,7 @@ describe('Functional Tests', () => {
         });
       cy.get('.creature-link').children().last()
         .within(() => {
-          cy.contains('h4', 'Weasel');
+          cy.contains('h3', 'Weasel');
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/weasel.png')
             .should('have.attr', 'alt', 'Weasel');
@@ -229,7 +229,7 @@ describe('Functional Tests', () => {
       cy.get('.creature-link').should('have.length', 1);
       cy.get('.creature-link').children().first()
         .within(() => {
-          cy.contains('h4', 'Weasel');
+          cy.contains('h3', 'Weasel');
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/weasel.png')
             .should('have.attr', 'alt', 'Weasel');
@@ -242,7 +242,7 @@ describe('Functional Tests', () => {
       cy.get('.creature-link').should('have.length', 6);
       cy.get('.creature-link').children().first()
         .within(() => {
-          cy.contains('h4', 'Aboleth');
+          cy.contains('h3', 'Aboleth');
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/aboleth.png')
             .should('have.attr', 'alt', 'Aboleth');
@@ -252,7 +252,7 @@ describe('Functional Tests', () => {
         });
       cy.get('.creature-link').children().last()
         .within(() => {
-          cy.contains('h4', 'Zombie');
+          cy.contains('h3', 'Zombie');
           cy.get('.creature-image')
             .should('have.attr', 'src', 'https://www.dnd5eapi.co/api/images/monsters/zombie.png')
             .should('have.attr', 'alt', 'Zombie');

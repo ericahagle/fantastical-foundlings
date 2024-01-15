@@ -83,7 +83,7 @@ const AdoptableCreatures = () => {
             onTypeFilterChange={handleTypeFilterChange}
             onAlignmentFilterChange={handleAlignmentFilterChange}
           />
-          <ul className='creature-list'>
+          <div className='creature-list'>
             {filteredCreatures.map((creature) => (
               creature.image &&
               <Link to={`/adoptable-creatures/${creature.index}`}
@@ -93,7 +93,7 @@ const AdoptableCreatures = () => {
                 <CreatureCard key={creature.index} creature={creature} onClick={() => selectCreature(selectedCreature)} />
               </Link>
             ))}
-          </ul>
+          </div>
           {filteredCreatures.length === 0 && <span className='no-results'>No creatures match your search.</span>}
         </>
       )}
