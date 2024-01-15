@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import Home from '../Home/Home';
@@ -11,7 +10,6 @@ import NotFound from '../NotFound/NotFound';
 const App = () => {
   const location = useLocation();
   const isAdoptPage = location.pathname === '/adoptable-creatures';
-  const [error, setError] = useState('');
 
   return (
     <main className='App'>

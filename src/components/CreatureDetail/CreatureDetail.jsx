@@ -14,7 +14,7 @@ const CreatureDetail = () => {
       return (
         <p className='paragraph-of-details'>
           <strong className='detail-category'>{label}:</strong>
-          <span style={{whiteSpace: 'pre-wrap', wordWrap: 'break-word'}}> {value}</span>
+          <span style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}> {value}</span>
         </p>
       );
     };
