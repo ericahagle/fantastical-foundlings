@@ -11,6 +11,8 @@ header {
 
 .app-title-link {
   text-decoration: none;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .app-title {
