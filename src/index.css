@@ -8,6 +8,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  background-image: url('../public/paper-background.jpg');
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

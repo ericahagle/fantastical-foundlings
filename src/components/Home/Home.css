@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   min-width: 100vw;
-  background-image: url('../../../public/paper-background.jpg');
 }
 
 .main-page-hero-image,
