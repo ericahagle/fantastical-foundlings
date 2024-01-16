@@ -1,7 +1,7 @@
 const BASE_URL = 'https://www.dnd5eapi.co';
 
 const getAllCreatures = () => {
-  return fetch(BASE_URL + '/api/monster')
+  return fetch(BASE_URL + '/api/monsters')
     .then((response) => {
       if (!response.ok) {
         if (response.status >= 400 && response.status < 500) {
