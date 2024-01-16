@@ -1,106 +1,102 @@
-  .CreatureDetail {
-    background-image: url('../../../public/paper-background.jpg');
-  }
+.creature-name {
+  font-size: 2em;
+}
 
-  .creature-name {
-    font-size: 2em;
-  }
+.selected-creature-image {
+  max-width: 90%;
+}
 
-  .selected-creature-image {
-    max-width: 90%;
-  }
+.base-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  grid-gap: 5px 5px;
+  padding: 10px;
+}
 
+.paragraph-of-details {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.array-of-details {
+  max-width: 100vw;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.paragraph-of-details,
+.detail-array-items>.detail-category {
+  font-size: 1.5em;
+}
+
+.detail-description {
+  font-size: 1.25em;
+  text-align: left;
+}
+
+.extra-stats {
+  text-align: left;
+}
+
+/* MEDIUM BREAKPOINT */
+@media screen and (max-width: 768px) and (min-width: 481px) {
   .base-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
-    grid-gap: 5px 5px;
-    padding: 10px;
-  }
-
-  .paragraph-of-details {
+    column-gap: 3%;
     padding-left: 5%;
     padding-right: 5%;
   }
 
-  .array-of-details {
-    max-width: 100vw;
-    margin-left: 5%;
-    margin-right: 5%;
+  .paragraph-of-details {
+    font-size: 1.65em;
+    text-align: left;
+  }
+}
+
+/* LARGE BREAKPOINT */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .base-stats {
+    column-gap: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 
-  .paragraph-of-details,
-  .detail-array-items>.detail-category {
+  .paragraph-of-details {
+    font-size: 1.65em;
+    text-align: left;
     font-size: 1.5em;
   }
 
-  .detail-description {
+  .detail-description,
+  .base-stats {
+    text-align: left;
+  }
+}
+
+/* X-LARGE BREAKPOINT */
+@media screen and (min-width: 1025px) {
+  .base-stats {
+    column-gap: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .paragraph-of-details {
+    font-size: 1.65em;
+    text-align: left;
+    font-size: 1.5em;
+  }
+
+  .paragraph-of-details {
     font-size: 1.25em;
+  }
+
+  .creature-detail-container,
+  .base-stats {
+    margin-top: 5%;
+  }
+
+  .detail-description,
+  .base-stats {
     text-align: left;
   }
-
-  .extra-stats {
-    text-align: left;
-  }
-
-  /* MEDIUM BREAKPOINT */
-  @media screen and (max-width: 768px) and (min-width: 481px) {
-    .base-stats {
-      column-gap: 3%;
-      padding-left: 5%;
-      padding-right: 5%;
-    }
-
-    .paragraph-of-details {
-      font-size: 1.65em;
-      text-align: left;
-    }
-  }
-
-  /* LARGE BREAKPOINT */
-  @media screen and (max-width: 1024px) and (min-width: 769px) {
-    .base-stats {
-      column-gap: 3%;
-      padding-left: 5%;
-      padding-right: 5%;
-    }
-
-    .paragraph-of-details {
-      font-size: 1.65em;
-      text-align: left;
-      font-size: 1.5em;
-    }
-
-    .detail-description,
-    .base-stats {
-      text-align: left;
-    }
-  }
-
-  /* X-LARGE BREAKPOINT */
-  @media screen and (min-width: 1025px) {
-    .base-stats {
-      column-gap: 3%;
-      padding-left: 5%;
-      padding-right: 5%;
-    }
-
-    .paragraph-of-details {
-      font-size: 1.65em;
-      text-align: left;
-      font-size: 1.5em;
-    }
-
-    .paragraph-of-details {
-      font-size: 1.25em;
-    }
-
-    .creature-detail-container,
-    .base-stats {
-      margin-top: 5%;
-    }
-
-    .detail-description,
-    .base-stats {
-      text-align: left;
-    }
-  }
+}
