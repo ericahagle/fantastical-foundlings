@@ -1,6 +1,6 @@
 # <img src='public/favicon.png'> Fantastical Foundlings
 
-<!-- ![Deployed Site]() -->
+![Deployed Site](https://fantastical-foundlings.vercel.app/)
 
 # 💻 Tech Stack
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
@@ -26,7 +26,7 @@ Give us a look, here at the Fantastical Foundlings rescue, where we re-home ever
 This application was built as the solo showcase project of Turing School of Software and Design's Front End Web Development program, Mod 3. We were given 7 days, from kick-off, to complete and submit the project for evaluation from scratch using the [provided spec](https://frontend.turing.edu/projects/module-3/showcase.html).
 
 # 🎬 Preview
-<!-- ![Preview Video]() -->
+https://github.com/ericahagle/fantastical-foundlings/assets/133910120/0ccaf13e-4a87-4065-b757-0c03e02c6f22
 
 # 🔧 Installation Instructions
 1. Clone this client repository to your local machine
