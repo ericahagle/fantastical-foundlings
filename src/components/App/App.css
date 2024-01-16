@@ -24,9 +24,7 @@
 .error-message {
   font-family: 'Modesto-Expanded';
   font-size: xx-large;
-  padding-top: 1em;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 1em;
 }
 
 .error-message {
