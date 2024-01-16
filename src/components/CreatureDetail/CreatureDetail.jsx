@@ -9,12 +9,19 @@ const CreatureDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const capitalizeFirstLetter = (value) => {
+    if (typeof value !== 'string') {
+      return value;
+    }
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  };
+
   const renderElementIfExists = (label, value) => {
     if (value) {
       return (
         <p className='paragraph-of-details'>
           <strong className='detail-category'>{label}:</strong>
-          <span style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}> {value}</span>
+          <span style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}> {capitalizeFirstLetter(value)}</span>
         </p>
       );
     };
