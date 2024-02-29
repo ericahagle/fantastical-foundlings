@@ -1,6 +1,41 @@
+import { useState, useEffect } from 'react';
+import StaffBio from '../StaffBio/StaffBio';
 import './About.css';
+import { getStaffBios } from '../../apiCalls';
 
 const About = () => {
+  const [staffBios, setStaffBios] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    let isMounted = true;
+      setLoading(true);
+      setError('');
+
+      getStaffBios()
+        .then((staffBios) => {
+          console.log('API Response:', staffBios);
+          if (isMounted) {
+            setStaffBios(staffBios);
+          }   
+        })
+        .catch((error) => {
+          console.error(error);
+          if (isMounted) {
+            setError(error.message);
+          } 
+        })
+        .finally(() => {
+          if (isMounted) {
+            setLoading(false);
+          }
+        });
+        return () => {
+          isMounted = false;
+        }
+  }, []);
+
   return (
     <div className='About'>
       <h2 className='page-title font-face-modesto-expanded'>About Us</h2>
@@ -11,7 +46,17 @@ const About = () => {
         <p>
           We love creatures of all sizes and alignments, and immediately began to pick up strays. Once we started accumulating more than we could handle, we needed to find them new homes. A few months of this led to spreading word of mouth and strangers showing up at our front door asking if we have any Displacer Beasts. (We get it, they're cool, but nobody—I repeat, nobody—has Displacer Beasts year-round, and when we do, they go fast.)
         </p>
-        <h2 className='page-title font-face-modesto-expanded'>Meet the Staff!</h2>
+      </div>
+      <h2 className='page-title font-face-modesto-expanded'>Meet the Staff!</h2>
+      <div className='staff-bios-container'>
+        {loading && <span className='loading'>Loading...</span>}
+        {error && <span className='error'>{error}</span>}
+        {!loading && staffBios && Array.isArray(staffBios) && (
+          staffBios.map((staffBio) => (
+            staffBio && 
+            <StaffBio key={staffBio._id} staffBio={staffBio} />
+          ))
+        )}
       </div>
     </div>
   );

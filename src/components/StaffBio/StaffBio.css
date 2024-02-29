@@ -1,0 +1,14 @@
+.StaffBio {
+  background-color: #bbbcac;
+  box-sizing: border-box;
+  border: 3px solid #582d30;
+  border-radius: 1em;
+  list-style: none;
+  padding: 1em;
+  height: 100%;
+}
+
+.StaffBio h3 {
+  color: #582d30;
+}
+
