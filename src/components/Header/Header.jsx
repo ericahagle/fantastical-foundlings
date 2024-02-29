@@ -8,7 +8,9 @@ const Header = ({ children, isAdoptPage, isAboutPage }) => {
       <Link className='app-title-link' to='/'>
         <h1 className='app-title font-face-modesto-condensed'>Fantastical Foundlings</h1>
       </Link>
-      {children}
+      <div className='button-container'>
+        {children}
+      </div>
     </header>
   );
 };
