@@ -10,30 +10,29 @@ const About = () => {
 
   useEffect(() => {
     let isMounted = true;
-      setLoading(true);
-      setError('');
+    setLoading(true);
+    setError('');
 
-      getStaffBios()
-        .then((staffBios) => {
-          console.log('API Response:', staffBios);
-          if (isMounted) {
-            setStaffBios(staffBios);
-          }   
-        })
-        .catch((error) => {
-          console.error(error);
-          if (isMounted) {
-            setError(error.message);
-          } 
-        })
-        .finally(() => {
-          if (isMounted) {
-            setLoading(false);
-          }
-        });
-        return () => {
-          isMounted = false;
+    getStaffBios()
+      .then((staffBios) => {
+        if (isMounted) {
+          setStaffBios(staffBios);
         }
+      })
+      .catch((error) => {
+        console.error(error);
+        if (isMounted) {
+          setError(error.message);
+        }
+      })
+      .finally(() => {
+        if (isMounted) {
+          setLoading(false);
+        }
+      });
+    return () => {
+      isMounted = false;
+    }
   }, []);
 
   return (
@@ -53,7 +52,7 @@ const About = () => {
         {error && <span className='error'>{error}</span>}
         {!loading && staffBios && Array.isArray(staffBios) && (
           staffBios.map((staffBio) => (
-            staffBio && 
+            staffBio &&
             <StaffBio key={staffBio._id} staffBio={staffBio} />
           ))
         )}
