@@ -1,8 +1,9 @@
 const BASE_URL = 'https://www.dnd5eapi.co';
 const LOCAL_BASE_URL = 'http://localhost:8080';
+const DEPLOYED_BASE_URL = 'https://fantastical-foundlings-server.vercel.app';
 
 const getStaffBios = () => {
-  return fetch(LOCAL_BASE_URL + '/api/staff')
+  return fetch(DEPLOYED_BASE_URL + '/api/staff')
     .then((response) => {
       if (!response.ok) {
         if (response.status >= 400 && response.status < 500) {
